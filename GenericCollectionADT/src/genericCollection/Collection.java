@@ -66,7 +66,7 @@ public class Collection<T> implements CollectionInterface<T> {
     }
     public void update(int index, T newElement) {
         System.out.println("== update (" + index + ", " + newElement + ") ==");
-        if (index != -1 && index <= ar.length){
+        if (index >= 0 && index <= this.index){
             ar[index] = newElement;
         }
     }
