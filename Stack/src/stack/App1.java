@@ -1,5 +1,44 @@
 package stack;
 public class App1 {
+    public static <T> ArrayBoundedStack<T> merge(ArrayBoundedStack<T> first, ArrayBoundedStack<T> second){
+        ArrayBoundedStack<T> result = new ArrayBoundedStack<>();
+        ArrayBoundedStack<T> temp = new ArrayBoundedStack<>();
+        while(!first.isEmpty()){
+            temp.push(first.top());
+            first.pop();
+        }
+        while(!temp.isEmpty()){
+            result.push(temp.top());
+            first.push(temp.top());
+            temp.pop();
+        }
+        while(!second.isEmpty()){
+            temp.push(second.top());
+            second.pop();
+        }
+        while(!temp.isEmpty()){
+            result.push(temp.top());
+            second.push(temp.top());
+            temp.pop();
+        }
+        return result;
+    }
+    public static int sum(ArrayBoundedStack<Integer> stack, int from, int to){
+        int sum = 0;
+        ArrayBoundedStack<Integer> temp = new ArrayBoundedStack<>();
+        while(!stack.isEmpty()){
+            if(stack.top() >= from && stack.top() <= to){
+                sum += stack.top();
+            }
+            temp.push(stack.top());
+            stack.pop();
+        }
+        while(!temp.isEmpty()){
+            stack.push(temp.top());
+            temp.pop();
+        }
+        return sum;
+    }
     public static void split(ArrayBoundedStack<Integer> stack, ArrayBoundedStack<Integer> even, ArrayBoundedStack<Integer> odd){
         ArrayBoundedStack<Integer> temp = new ArrayBoundedStack<>();
         while(!stack.isEmpty()){
@@ -130,10 +169,14 @@ public class App1 {
         stack.push(8);
         stack.push(9);
         stack.push(10);
-        stack.push(11);
-        stack.push(12);
-        stack.push(13);
-        stack.push(14);
+        ArrayBoundedStack<Integer> stack2 = new ArrayBoundedStack<>();
+        stack2.push(11);
+        stack2.push(12);
+        stack2.push(13);
+        stack2.push(14);
+        
+        ArrayBoundedStack<Integer> merged = merge(stack, stack2);
+        printStack(merged);
         printStack(stack);
         reverse(stack);
         printStack(stack);
