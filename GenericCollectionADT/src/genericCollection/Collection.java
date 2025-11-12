@@ -1,7 +1,7 @@
 package genericCollection;
 public class Collection<T> implements CollectionInterface<T> {
     private int index = -1;
-    private T[] ar ;
+    private T[] ar;
     public Collection(){
         ar = (T[]) new Object [10];
     }
@@ -71,3 +71,4 @@ public class Collection<T> implements CollectionInterface<T> {
         }
     }
 }
+
