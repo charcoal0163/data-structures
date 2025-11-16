@@ -1,5 +1,10 @@
 package stack;
 public class App1 {
+    public static String longest(ArrayBoundedStack<String> stack){
+        //test if stack is empty
+        //use the length String method
+        // -> stack.top().length();
+    }
     public static <T> void removeMin(T element, ArrayBoundedStack<T> stack){
         //write a loop to find the minimum value
         
@@ -200,4 +205,5 @@ public class App1 {
         printStack(stackO);
     }
 }
+
 
