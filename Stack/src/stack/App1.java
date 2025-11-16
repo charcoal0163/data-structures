@@ -1,5 +1,18 @@
 package stack;
 public class App1 {
+    public static <T> void removeMin(T element, ArrayBoundedStack<T> stack){
+        //write a loop to find the minimum value
+        
+        while(!temp.isEmpty()){
+            if(min == temp.top()){
+                temp.pop();
+            }
+            else{
+                stack.push(temp.top());
+                temp.pop();
+            }
+        }
+    }
     public static <T> ArrayBoundedStack<T> merge(ArrayBoundedStack<T> first, ArrayBoundedStack<T> second){
         ArrayBoundedStack<T> result = new ArrayBoundedStack<>();
         ArrayBoundedStack<T> temp = new ArrayBoundedStack<>();
@@ -187,3 +200,4 @@ public class App1 {
         printStack(stackO);
     }
 }
+
