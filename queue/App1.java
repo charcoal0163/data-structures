@@ -57,7 +57,69 @@ public class App1 {
             queue.enqueue(odd.dequeue());
         }
     }
+    public static <T> int deleteValue(ArrayBoundedQueue<T> queue, T element){
+        ArrayBoundedQueue<T> temp = new ArrayBoundedQueue<>();
+        int count = 0;
+        while(!queue.isEmpty()){
+            T e = queue.dequeue();
+            if(e.equals(element)){
+                ++count;
+            }
+            else{
+                temp.enqueue(e);
+            }
+        }        
+        while(!temp.isEmpty()){
+            queue.enqueue(temp.dequeue());
+        }
+        return count;
+    }
+    public static <T> int replace(ArrayBoundedQueue<T> queue, T oldE, T newE){
+        ArrayBoundedQueue<T> temp = new ArrayBoundedQueue<>();
+        int count = 0;
+        while(!queue.isEmpty()){
+            T e = queue.dequeue();
+            if(e.equals(oldE)){
+                ++count;
+                temp.enqueue(newE);
+            }
+            else{
+                temp.enqueue(e);
+            }
+        }
+        while(!temp.isEmpty()){
+            queue.enqueue(temp.dequeue());
+        }
+        return count;
+    }
+    public static int max(ArrayBoundedQueue<Integer> queue){
+        ArrayBoundedQueue<Integer> temp = new ArrayBoundedQueue<>();
+        int max = -1;
+        if(!queue.isEmpty()){
+            max = queue.dequeue();
+        }
+        temp.enqueue(max);
+        while(!queue.isEmpty()){
+            int e = queue.dequeue();
+            temp.enqueue(e);
+            if(e > max){
+                max = e;
+            }
+        }
+        while(!temp.isEmpty()){
+            queue.enqueue(temp.dequeue());
+        }
+        return max;
+    }
     public static void main(String[] args) {
-        ArrayBoundedQueue<Integer> first = new ArrayBoundedQueue<>(5);
+        ArrayBoundedQueue<Integer> first = new ArrayBoundedQueue<>();
+        first.enqueue(4);
+        first.enqueue(5);
+        first.enqueue(10);
+        first.enqueue(11);
+        first.enqueue(19);
+        System.out.println(count(first));
+        print(first);
+        System.out.println(deleteValue(first, 10));
     }
 }
