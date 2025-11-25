@@ -1,6 +1,21 @@
 package queue;
 import java.util.Scanner;
 public class App1 {
+    public static boolean positives(ArrayBoundedQueue<Integer> queue){
+        ArrayBoundedQueue<Integer> temp = new ArrayBoundedQueue<>();
+        boolean flag = true;
+        while(!queue.isEmpty()){
+            int e = queue.dequeue();
+            if(e < 0){
+                flag = false;
+            }
+            temp.enqueue(e);
+        }
+        while(!temp.isEmpty()){
+            queue.enqueue(temp.dequeue());
+        }
+        return flag;
+    }
     public static <T> void print(ArrayBoundedQueue<T> queue){
         ArrayBoundedQueue<T> temp = new ArrayBoundedQueue<>();
         while(!queue.isEmpty()){
