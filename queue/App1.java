@@ -1,6 +1,29 @@
 package queue;
 import stack.*;
 public class App1 {
+    public static <T> void swap(ArrayBoundedQueue<T> queue){
+        ArrayBoundedQueue<T> temp = new ArrayBoundedQueue<>();
+        if(queue == null){
+            System.out.println("nope lol");
+            return;
+        }
+        if(count(queue) == 1){
+            System.out.println("there's only one element in the queue, there's nothing to swap");
+            return;
+        }
+        T first = queue.dequeue();
+        T e = null;
+        while(count(queue) > 1){
+            e = queue.dequeue();
+            temp.enqueue(e);
+        }
+        T last = queue.dequeue();
+        queue.enqueue(last);
+        while(!temp.isEmpty()){
+            queue.enqueue(temp.dequeue());
+        }
+        queue.enqueue(first);
+    }
     public static <T> void printFandL(ArrayBoundedQueue<T> queue){
         ArrayBoundedQueue<T> temp = new ArrayBoundedQueue<>();
         if(queue == null || queue.isEmpty()){
@@ -172,4 +195,5 @@ public class App1 {
         System.out.println(deleteValue(first, 10));
     }
 }
+
 
