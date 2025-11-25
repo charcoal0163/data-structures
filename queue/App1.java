@@ -1,6 +1,30 @@
 package queue;
 import stack.*;
 public class App1 {
+    public static <T> void printFandL(ArrayBoundedQueue<T> queue){
+        ArrayBoundedQueue<T> temp = new ArrayBoundedQueue<>();
+        if(queue == null || queue.isEmpty()){
+            System.out.println("nope lol");
+            return;
+        }
+        T first = queue.dequeue();
+        temp.enqueue(first);
+        if(queue.isEmpty()){
+            System.out.println("there's only one element in the queue and it's " + first);
+            queue.enqueue(first);
+            return;
+        }
+        T last = null;
+        while(!queue.isEmpty()){
+            last = queue.dequeue();
+            temp.enqueue(last);
+        }
+        System.out.println("first element is " + first);
+        System.out.println("last element is " + last);
+        while(!temp.isEmpty()){
+            queue.enqueue(temp.dequeue());
+        }
+    }
     public static <T> void reverse(ArrayBoundedQueue<T> queue){
         ArrayBoundedStack<T> tempStack = new ArrayBoundedStack<>();
         while(!queue.isEmpty()){
@@ -148,3 +172,4 @@ public class App1 {
         System.out.println(deleteValue(first, 10));
     }
 }
+
