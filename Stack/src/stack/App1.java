@@ -135,7 +135,7 @@ public class App1 {
             temp.pop();
         }
     }
-    public static<T> void printStack(ArrayBoundedStack<T> s){
+    public static <T> void printStack(ArrayBoundedStack<T> s){
      ArrayBoundedStack<T> temp = new ArrayBoundedStack<>();   
         System.out.println("=========== Stack Contains: ==============");
         while(!s.isEmpty()){
@@ -149,7 +149,7 @@ public class App1 {
          temp.pop();
         }
     }
-    public static<T> int getStackSize(ArrayBoundedStack<T> s){
+    public static <T> int getStackSize(ArrayBoundedStack<T> s){
         int count = 0;
         ArrayBoundedStack<T> temp = new ArrayBoundedStack<>();
         while(!s.isEmpty()){
@@ -187,6 +187,3 @@ public class App1 {
         printStack(stackO);
     }
 }
-
-
-
