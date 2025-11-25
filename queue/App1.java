@@ -1,6 +1,16 @@
 package queue;
-import java.util.Scanner;
+import stack.*;
 public class App1 {
+    public static <T> void reverse(ArrayBoundedQueue<T> queue){
+        ArrayBoundedStack<T> tempStack = new ArrayBoundedStack<>();
+        while(!queue.isEmpty()){
+            tempStack.push(queue.dequeue());
+        }
+        while(!tempStack.isEmpty()){
+            queue.enqueue(tempStack.top());
+            tempStack.pop();
+        }
+    }
     public static boolean positives(ArrayBoundedQueue<Integer> queue){
         ArrayBoundedQueue<Integer> temp = new ArrayBoundedQueue<>();
         boolean flag = true;
