@@ -193,7 +193,37 @@ public class App1 {
         System.out.println(count(first));
         print(first);
         System.out.println(deleteValue(first, 10));
+        
+        ArrayBoundedQueue<student> mf = new ArrayBoundedQueue<>();
+        ArrayBoundedQueue<student> male = new ArrayBoundedQueue<>();
+        ArrayBoundedQueue<student> female = new ArrayBoundedQueue<>();
+        mf.enqueue(new student("sumaya", 123, 'f'));
+        student s1 = new student("thaer", 345, 'm');
+        mf.enqueue(s1);
+        mf.enqueue(new student("ahmad", 987, 'm'));
+        mf.enqueue(new student("julia", 568, 'f'));
+        mf.enqueue(new student("hadeel", 482, 'f'));
+
+        ArrayBoundedQueue<student> temp = new ArrayBoundedQueue<>();
+        while(!mf.isEmpty()){
+            student e = mf.dequeue();
+            if(e.getGender() == 'f'){
+                female.enqueue(e);
+            }
+            else{
+                male.enqueue(e);
+            }
+            temp.enqueue(e);
+        }
+        while(!temp.isEmpty()){
+            mf.enqueue(temp.dequeue);
+        }
+
+        System.out.print("mf = ");
+        print(mf);
+        System.out.print("f = ");
+        print(female);
+        System.out.print("m = ");
+        print(male);
     }
 }
-
-
