@@ -1,0 +1,14 @@
+package Circle;
+public class Demo {
+    public static void main(String[] args) {
+        Circle first = new Circle(2.5, "red");
+        Circle second = new Circle(1.1, "blue");
+        Circle third = new Circle(0.1, "blue");
+        System.out.println(first.equals(third));
+        System.out.println(second.equals(third));
+        if(first.compareTo(second) > 0)
+            System.out.println("g");
+        else if(first.compareTo(second) < 0)
+            System.out.println("l");
+    }
+}
