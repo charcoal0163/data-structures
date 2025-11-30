@@ -1,0 +1,7 @@
+package queue;
+public class student{
+private String name;
+private int id;
+private char gender;
+//add getters and setters, and a parameterised constructo
+}
