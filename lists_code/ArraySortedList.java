@@ -6,10 +6,7 @@ public class ArraySortedList<T> extends ArrayUnsortedList<T> implements ListInte
     public ArraySortedList(int origCap) {
         super(origCap);
     }
-    public void add(T element) 
-    // Precondition:  element is Comparable.    
-    // Adds element to this list.
-    {
+    public void add(T element) {
         T listElement;
         int location = 0;
         if (numElements == list.length) {
@@ -17,11 +14,11 @@ public class ArraySortedList<T> extends ArrayUnsortedList<T> implements ListInte
         }
         while (location < numElements) {
             listElement = (T) list[location];
-            if (((Comparable) listElement).compareTo(element) < 0) // list element < add element
-            {
+            if (((Comparable) listElement).compareTo(element) < 0) {
                 location++;
-            } else {
-                break;   // list element >= add element
+            }
+            else {
+                break;
             }
         }
         for (int index = numElements; index > location; index--) {
@@ -30,9 +27,7 @@ public class ArraySortedList<T> extends ArrayUnsortedList<T> implements ListInte
         list[location] = element;
         numElements++;
     }
-    public boolean remove(T element) // Removes an element e from this list such that e.equals(element)
-    // and returns true; if no such element exists, returns false.
-    {
+    public boolean remove(T element) {
         find(element);
         if (found) {
             for (int i = location; i <= numElements - 2; i++) {
