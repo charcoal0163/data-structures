@@ -1,7 +1,72 @@
 package lists_code;
 import java.util.Scanner;
 public class List_Demo {
+    public static <T> void print(ArrayUnsortedList<T> list){
+        list.reset();
+        for(int i = 0; i < list.size(); i++){
+            System.out.print(list.getNext() + "   ");
+        }
+        System.out.println();
+    }
+    public static <T> void printFirst(ArrayUnsortedList<T> list){
+        if(list.size() != 0){
+            list.reset();
+            System.out.println("first element: " + list.getNext());
+            System.out.println();
+        }
+    }
+    public static <T> void nElements(ArrayUnsortedList<T> list, int n){
+        if(list.size() != 0){
+            list.reset();
+            for(int i = 0; i < n; i++){
+                System.out.println(list.getNext());
+            }
+            System.out.println();
+        }
+    }
+    public static <T> void removeN(ArrayUnsortedList<T> list, T n){
+        while(list.remove(n));
+    }
+    public static <T> void removeAll(ArrayUnsortedList<T> list){
+        while(list.size() != 0){
+            list.reset();
+            list.remove(list.getNext());
+        }
+    }
+    public static int sum(ArrayUnsortedList<Integer> list){
+        int sum = 0;
+        list.reset();
+        for(int i = 0; i < list.size(); i++){
+            sum += list.getNext();
+        }
+        return sum;
+    }
+    public static <T> ArraySortedList<T> sort(ArrayUnsortedList<T> list){
+        ArraySortedList<T> sorted = new ArraySortedList<>();
+        list.reset();
+        for(int i = 0; i < list.size(); i++){
+            sorted.add(list.getNext());
+        }
+        return sorted;
+    }
     public static void main(String[] args) {
+        ArrayUnsortedList<Integer> first = new ArrayUnsortedList<>();
+        first.add(3);
+        first.add(-2);
+        first.add(7);
+        first.add(15);
+        first.add(21);
+        first.add(7);
+        first.add(4);
+        System.out.println(first);
+        printFirst(first);
+        
+        System.out.println("after sorting");
+        first = sort(first);
+        System.out.println(first);
+
+//========================================================================
+        
         Scanner s = new Scanner(System.in);
         int choice;
         Integer element;
