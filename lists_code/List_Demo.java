@@ -49,6 +49,14 @@ public class List_Demo {
         }
         return sorted;
     }
+    public static <T> ArrayUnsortedList<T> slice(ArrayUnsortedList<T> list, int first, int last){
+        ArrayUnsortedList<T> sliced = new ArrayUnsortedList<>();
+        list.reset();
+        for(int i = first; i <= last; i++){
+            sliced.add(list.getNext());
+        }
+        return sliced;
+    }
     public static void main(String[] args) {
         ArrayUnsortedList<Integer> first = new ArrayUnsortedList<>();
         first.add(3);
@@ -127,3 +135,4 @@ public class List_Demo {
         }
     }
 }
+
