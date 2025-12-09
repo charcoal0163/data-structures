@@ -123,22 +123,37 @@ public class ArrayUnsortedList<T> implements ListInterface<T> {
         return sum;
     }
     public T showFirst(){
-        return list[0];
+        if(numElements != 0){
+            return list[0];
+        }
+        return null;
     }
     public T showLast(){
-        return list[numElements - 1];
+        if(numElements != 0){
+            return list[numElements - 1];
+        }
+        return null;
     }
     public T showMiddle(){
-        return list[numElements / 2];
+        if(numElements != 0){
+            return list[numElements / 2];
+        }
+        return null;
     }
     public void removeFirst(){
-        remove(list[0]);
+        if(numElements != 0){
+            remove(list[0]);
+        }
     }
     public void removeLast(){
-        remove(list[numElements - 1]);
+        if(numElements != 0){
+            remove(list[numElements - 1]);    
+        }
     }
     public void removeMiddle(){
-        remove(list[numElements / 2]);
+        if(numElements != 0){
+            remove(list[numElements / 2]);
+        }
     }
     public ArrayUnsortedList<T> slice(int first, int last){
         if(first >= 0 && last >= 0 && last < numElements && first <= last){
