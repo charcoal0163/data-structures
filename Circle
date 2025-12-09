@@ -19,6 +19,7 @@ public class Circle implements Comparable<Circle> {
     public void setColour(String colour) {
         this.colour = colour;
     }
+//overriding the equals method to be able to see whether two objects are identical or not
     public boolean equals(Object obj){
         Circle one = (Circle) obj;
         if(one.radius == this.radius && one.colour.equalsIgnoreCase(this.colour)){
@@ -26,6 +27,7 @@ public class Circle implements Comparable<Circle> {
         }
         return false;
     }
+//overriding the compareTo method from the Comparable interface to be able to compare two objects
     public int compareTo(Circle o){
         if(o.radius > this.radius){
             return -1;
