@@ -68,8 +68,13 @@ public class List_Demo {
         first.add(4);
         System.out.println(first);
         printFirst(first);
+
+        System.out.println("=======");
+        System.out.println(first.showFirst());
+        System.out.println(first.slice(2, 5));
         
         System.out.println("after sorting");
+        System.out.println();
         first = sort(first);
         System.out.println(first);
 
@@ -135,4 +140,3 @@ public class List_Demo {
         }
     }
 }
-
