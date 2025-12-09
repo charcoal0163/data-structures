@@ -86,4 +86,46 @@ public class ArrayUnsortedList<T> implements ListInterface<T> {
         }
         return next;
     }
+    public void printFirst(){
+        //option 1:
+        //since the method is in the class, we can immediately print the first element through the array
+        
+        System.out.println(list[0]);
+        
+        //option 2:
+        //we can use the methods that already have an implementation within the class
+        
+        /*reset();
+        System.out.println(getNext());*/
+    }
+    public void printList(){
+        for(int i = 0; i < numElements; i++){
+            System.out.print(list[i] + " ");
+        }
+    }
+    public void nElements(int n){
+        for(int i = 0; i < n; i++){
+            System.out.print(list[i] + " ");
+        }
+    }
+    public void clear(){
+        for(int i = 0; i <  numElements; i++){
+            list[i] = null;
+        }
+        numElements = 0;
+    }
+    public int sum(){
+        reset();
+        int sum = 0;
+        for(int i = 0; i < numElements; i++){
+            sum += (Integer)getNext();
+        }
+        return sum;
+    }
+    public T showFirst(){
+        return list[0];
+    }
+    public T showLast(){
+        return list[numElements - 1];
+    }
 }
