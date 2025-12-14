@@ -48,6 +48,17 @@ public class Linked_List {
             System.out.println("lol nope");
         }
     }
+    public static <T> boolean searchAgain(LLNode<T> list, T item){
+        boolean find = false;
+        while(list != null){
+            if((list.getInfo()).equals(item)){
+                find = true;
+                break;
+            }
+            list = list.getLink();
+        }
+        return find;
+    }
     public static void main(String[] args) {
         LLNode<Integer> list;
         LLNode<Integer> first = new LLNode<>(3);
