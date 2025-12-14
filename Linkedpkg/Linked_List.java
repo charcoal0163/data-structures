@@ -17,11 +17,35 @@ public class Linked_List {
         }
         return counter;
     }
-    public static <T> void printHalf(LLNode<T> list){
+    public static <T> void topHalf(LLNode<T> list){
         int half = size(list) / 2;
         for(int i = 0; i < half; i++){
             System.out.println(list.getInfo());
             list = list.getLink();
+        }
+    }
+    public static <T> void bottomHalf(LLNode<T> list){
+        int sized = size(list);
+        for(int i = 0; i < sized; i++){
+            if(i >= sized / 2){
+                System.out.println(list.getInfo());
+            }
+            list = list.getLink();
+        }
+    }
+    public static <T> void search(LLNode<T> list, T item){
+        LLNode<T> point = list;
+        while(point != null){
+            if(item.equals(point.getInfo())){
+                break;
+            }
+            point = point.getLink();
+        }
+        if(point != null){
+            System.out.println("yay");
+        }
+        else{
+            System.out.println("lol nope");
         }
     }
     public static void main(String[] args) {
@@ -57,6 +81,12 @@ public class Linked_List {
         print(list);
         
         System.out.println();
-        printHalf(list);
+        topHalf(list);
+        bottomHalf(list);
+        
+        search(list, 3);
+        search(list, 10);
+        search(list, -7);
+        search(list, 12);
     }
 }
