@@ -1,6 +1,47 @@
 package Linkedpkg;
 import java.util.Scanner;
 public class DemoNodes {
+    public static <T> void removeSpec(LLNode<T> list, T item){
+        if(list.getLink() == null && list.getInfo().equals(item)){
+            list = list.getLink();
+        }
+        else{
+            LLNode<T> current, previous;
+            current = list;
+            previous = null;
+            while(current != null){
+                if(current.getInfo().equals(item)){
+                    break;
+                }
+                previous = current;
+                current = current.getLink();
+            }
+            if(current != null){
+                previous.setLink(current.getLink());
+            }
+        }
+    }
+    public static <T> void printWithoutFirst(LLNode<T> list){
+        LLNode<T> visit = list.getLink();
+        while(visit != null){
+            System.out.println(visit.getInfo());
+            visit = visit.getLink();
+        }
+    }
+    public static <T> void printWithoutLast(LLNode<T> list){
+        LLNode<T> visit = list;
+        while(visit.getLink() != null){
+            System.out.println(visit.getInfo());
+            visit = visit.getLink();
+        }
+    }
+    public static <T> void printMiddles(LLNode<T> list){
+        LLNode<T> visit = list.getLink();
+        while(visit.getLink() != null){
+            System.out.println(visit.getInfo());
+            visit = visit.getLink();
+        }
+    }
     public static void main(String[] args) {
         System.out.println("nodes: ");
         Scanner test = new Scanner(System.in);
