@@ -108,17 +108,5 @@ public class Linked_List {
             n.setLink(secondList);
             secondList = n;
         }
-        
-        System.out.println("nodes: ");
-        Scanner test = new Scanner(System.in);
-        System.out.println("enter values - stop at 999");
-        int x = test.nextInt();
-        LLNode<Integer> thirdList = null;
-        while(x != 999){
-            LLNode<Integer> node = new LLNode<>(x);
-            node.setLink(thirdList);
-            thirdList = node;
-            x = test.nextInt();
-        }
     }
 }
