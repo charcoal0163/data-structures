@@ -99,5 +99,17 @@ public class Linked_List {
         search(list, 10);
         search(list, -7);
         search(list, 12);
+
+        //loops :3
+        LLNode<Integer> secondList = null;
+        for(int i = 0; i < 5; i++){
+            LLNode<Integer> n = new LLNode<>(i);
+            n.setLink(secondList);
+            secondList = n;
+        }
+        /*
+        
+        */
     }
 }
+
