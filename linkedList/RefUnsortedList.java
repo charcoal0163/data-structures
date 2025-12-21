@@ -83,15 +83,15 @@ public class RefUnsortedList<T> implements ListInterface<T> {
         return next;
     }
     public void removeFirst(){
-        if (list!=null){
-            list=list.getLink();
+        if (list != null){
+            list = list.getLink();
             --numElements;
         }
     }
     public void removeLast(){
-        if (list!=null){
-            if (list.getLink()==null){
-                list=null;
+        if (list != null){
+            if (list.getLink() == null){
+                list = null;
             }
             else{
                 LLNode<T> t = list;
@@ -104,11 +104,11 @@ public class RefUnsortedList<T> implements ListInterface<T> {
         }
     }
     public void removeMiddle(){
-        if (list!=null){
-            if (list.getLink()==null){
+        if (list != null){
+            if (list.getLink() == null){
                 list = null;
             }
-            else if (numElements==2){
+            else if (numElements == 2){
                 list.setLink(null);
             }
             else {                
@@ -127,8 +127,8 @@ public class RefUnsortedList<T> implements ListInterface<T> {
     }
     public void addLast(T e){
         LLNode<T> newNode = new LLNode<T>(e);        
-        if (list==null){
-            list=newNode;
+        if (list == null){
+            list = newNode;
         }
         else {
             LLNode<T> t = list;
