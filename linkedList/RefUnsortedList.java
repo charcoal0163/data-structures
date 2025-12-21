@@ -139,4 +139,32 @@ public class RefUnsortedList<T> implements ListInterface<T> {
         }       
         ++numElements;
     }
+    public void duplicateFirstAtLast(){
+        if(list != null){
+            LLNode<T> first = new LLNode<>(list.getInfo());
+            LLNode<T> point = list;
+            while(point.getLink() != null){
+                point = point.getLink();
+            }
+            point.setLink(first);
+            ++numElements;
+        }
+    }
+    public void deleteSpec(int k){
+        if(k <= numElements){
+            if(k == 1){
+                list = list.getLink();
+            }
+            else{
+                LLNode<T> previous, current;
+                previous = current = list;
+                for(int i = 1; i < k; i++){
+                    previous = current;
+                    current = current.getLink();
+                }
+                previous.setLink(current.getLink());
+            }
+            --numElements;
+        }
+    }
 }
