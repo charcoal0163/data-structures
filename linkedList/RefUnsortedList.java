@@ -167,4 +167,18 @@ public class RefUnsortedList<T> implements ListInterface<T> {
             --numElements;
         }
     }
+    public void removeDuplicate(){
+        reset();
+        RefUnsortedList<T> temp = new RefUnsortedList<>();
+        for(int i = 0; i < numElements; i++){
+            T e = getNext();
+            if(!temp.contains(e)){
+                temp.add(e);
+            }
+        }
+        list = temp.list;
+        numElements = temp.size();
+        //alternatively
+        //numElements = temp.numElements;
+    }
 }
