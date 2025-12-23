@@ -1,6 +1,14 @@
 package linkedList;
 import java.util.Scanner;
 public class Demo {
+    public static int sum(RefUnsortedList<Integer> list){
+        int sum = 0;
+        list.reset();
+        for(int i = 0; i < list.size(); i++){
+            sum += list.getNext();
+        }
+        return sum;
+    }
     public static void main(String[] args) {
         RefUnsortedList<Integer> d = new RefUnsortedList();
         Scanner key = new Scanner(System.in);
