@@ -42,5 +42,17 @@ public class doublyDemo {
             System.out.println(visit.getInfo() + "  ");
             visit = visit.getBack();
         }
+
+        //add new node at the beginning
+        DLLNode<Integer> jdide = new DLLNode<>(12);
+        jdide.setFront(first);
+        first.setBack(jdide);
+        first = jdide;
+        
+        //add new node at the end
+        DLLNode<Integer> jdide2 = new DLLNode<>(-2);
+        jdide2.setBack(last);
+        last.setFront(jdide2);
+        last = jdide2;
     }
 }
