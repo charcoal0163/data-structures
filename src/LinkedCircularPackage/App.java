@@ -77,6 +77,41 @@ public class App {
             System.out.println();
         }
     }
+    public static int sum(LLNode<Integer> list){
+        int sum = 0;
+        LLNode<Integer> point = list.getLink();
+        while(point != list){
+            sum += point.getInfo();
+            point = point.getLink();
+        }
+        sum += point.getInfo();
+        return sum;
+    }
+/*    public static int max(LLNode<Integer> list){
+        if(list != null){
+            int max = list.getInfo();
+            LLNode<Integer> point = list.getLink();
+            while(point != list){
+                
+            }
+        }
+    }*/
+    public static <T> boolean isCircular(LLNode<T> list){
+        boolean flag = false;
+        if(list == null){
+            return false;
+        }
+        else{
+            LLNode<T> point = list.getLink();
+            while(point != list && point != null){
+                point = point.getLink();
+            }
+            if(point == list){
+                flag = true;
+            }
+            return flag;
+        }
+    }
     public static void main(String[] args){
         LLNode<Integer> list = null;
 
@@ -94,3 +129,4 @@ public class App {
         print(list);
     }
 }
+
