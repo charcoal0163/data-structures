@@ -24,5 +24,4 @@ public class DLLNode <T> {
     public void setBack(DLLNode<T> back) {
         this.back = back;
     }
-    
 }
