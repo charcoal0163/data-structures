@@ -18,6 +18,23 @@ public class Demo1 {
         //notice: changing the 'head' pointer doesn't reach the main, that's why we have to return the list
         return head;
     }
+    public static <T> DLLNode<T> addAt(DLLNode<T> head, T element, int position){
+        DLLNode<T> jdide = new DLLNode<>(element);
+        if(head == null){
+            head = jdide;
+        }
+        else{
+            for(int i = 1; i < position - 1; i++){
+                //why position - 1 ? so point would be sitting on the node before the position intended
+                head = head.getFront();
+            }
+            jdide.setBack(head);
+            jdide.setFront(head.getFront());
+            head.getFront().setBack(jdide);
+            head.setFront(jdide);
+        }
+        return head;
+    }
     public static void main(String[] args) {
         DLLNode<Integer> n1 = new DLLNode<>(10);
         DLLNode<Integer> n2 = new DLLNode<>(5);
