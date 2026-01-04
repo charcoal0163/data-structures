@@ -24,22 +24,78 @@ public class DoublyLinkedList<T> {
         }
         return listString;
     }
+    public void addFront(T element){
+        DLLNode<T> jdide = new DLLNode<>(element);
+        if(size() == 0){
+            first = last = jdide;
+        }
+        else{
+            jdide.setFront(first);
+            first.setBack(jdide);
+            first = jdide;
+        }
+        ++numElements;
+    }
+    public void addEnd(T element){
+        DLLNode<T> jdide = new DLLNode<>(element);
+        if(isEmpty()){
+            first = last = jdide;
+        }
+        else{
+            last.setFront(jdide);
+            jdide.setBack(last);
+            last = jdide;
+        }
+        ++numElements;
+    }
+    public void removeFront(){
+        if(!isEmpty()){
+            if(size() == 1){
+                //or: if(first == last)
+                first = last = null;
+            }
+            else{
+                first = first.getFront();
+                first.setBack(null);
+            }
+            --numElements;
+        }
+    }
+    public void removeEnd(){
+        if(!isEmpty()){
+            if(first == last){
+                //or: if(size() == 1)
+                first = last = null;
+            }
+            else{
+                last = last.getBack();
+                last.setFront(null);
+            }
+            --numElements;
+        }
+    }
+    public T getFront(){
+        if(isEmpty()){
+            return null;
+        }
+        else{
+            return first.getInfo();
+        }
+    }
+    public T getLast(){
+        if(isEmpty()){
+            return null;
+        }
+        else{
+            return last.getInfo();
+        }
+    }
     
-    //----------------------------------------------------
-    //         ADD MORE INSTANCE METHODS AS FOLLOWs:
-    //----------------------------------------------------
-    // void addFront(T element)  to add element/node in the front
-    // void addEnd(T element)    to add element/node in the back
-    // boolean remove(T element) to remove target element from the list
-    // void removeFront()        to remove first element/node
-    // void removeEnd()          to remove last element/node
     // void removeMiddle()       to remove middle element/node
     // void printReverse()       to print list backward
     // boolean search(T element) to find element in the list 
-    // T getFront()              to return the first element. If size==0 then return null
-    // T getLast()               to return the last element. If size==0 then return null
+    // boolean remove(T element) to remove target element from the list
     // .................................................
-    // ................................................. 
-    // .................................................    
-    
+    // .................................................
+    // .................................................
 }
