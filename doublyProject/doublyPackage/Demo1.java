@@ -1,5 +1,4 @@
 package doublyPackage;
-
 public class Demo1 {
     public static <T> boolean search(DLLNode<T> head, T element){
         DLLNode<T> point = head;
@@ -10,6 +9,14 @@ public class Demo1 {
             point = point.getFront();
         }
         return false;
+    }
+    public static <T> DLLNode<T> insertFront(DLLNode<T> head, T element){
+        DLLNode<T> jdide = new DLLNode<>(element);
+        jdide.setFront(head);
+        head.setBack(jdide);
+        head = jdide;
+        //notice: changing the 'head' pointer doesn't reach the main, that's why we have to return the list
+        return head;
     }
     public static void main(String[] args) {
         DLLNode<Integer> n1 = new DLLNode<>(10);
@@ -26,14 +33,12 @@ public class Demo1 {
         
         // forward traverse
         n2=n1;
-        while(n2!=null)
-        {
+        while(n2!=null){
             System.out.println(n2.getInfo());
             n2=n2.getFront();
         }
         
         System.out.println("------------");
-        
         // backward traverse
         n2=n1;
         while(n2.getFront()!=null)
@@ -42,10 +47,5 @@ public class Demo1 {
             System.out.println(n2.getInfo());
             n2=n2.getBack();
         }
-        
-        //---- add more examples to practice DLLNode class
-        
-        
-        
     }
 }
