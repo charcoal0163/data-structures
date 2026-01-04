@@ -104,5 +104,29 @@ public class doublyDemo {
         print(first);
         print(last);
         System.out.println(size(first));
+
+        //remove first
+        first = first.getFront();
+        first.setBack(null);
+
+        //remove last
+        last = last.getBack();
+        last.setFront(null);
+
+        //search for a node
+        Integer e = 7;
+        DLLNode<Integer> v = first;
+        while(v != null){
+            if(v.getInfo().equals(e)){
+                break;
+            }
+            v = v.getFront();
+        }
+        if(v = null){
+            System.out.println("lol nope");
+        }
+        else{
+            System.out.println("yay");
+        }
     }
 }
