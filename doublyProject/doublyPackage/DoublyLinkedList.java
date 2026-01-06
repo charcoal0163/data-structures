@@ -90,12 +90,57 @@ public class DoublyLinkedList<T> {
             return last.getInfo();
         }
     }
-    
-    // void removeMiddle()       to remove middle element/node
-    // void printReverse()       to print list backward
-    // boolean search(T element) to find element in the list 
-    // boolean remove(T element) to remove target element from the list
-    // .................................................
-    // .................................................
-    // .................................................
+    public void printReverse(){
+        DLLNode<T> point = last;
+        while(point != null){
+            System.out.println(point.getInfo());
+            point = point.getBack();
+        }
+    }
+    public boolean search(T element){
+        DLLNode<T> temp = first;
+        while(temp != null){
+            if(temp.getInfo().equals(element)){
+                return true;
+            }
+            temp = temp.getFront();
+        }
+        return false;
+    }
+    public boolean remove(T element){
+        DLLNode<T> point = first;
+        while(point != null){
+            if(point.getInfo().equals(element)){
+                if(point == first){
+                    removeFront();
+                }
+                else if(point == last){
+                    removeEnd();
+                }
+                else{
+                    point.getBack().setFront(point.getFront());
+                    point.getFront().setBack(point.getBack());
+                    --numElements;
+                }
+                return true;
+            }
+            point = point.getFront();
+        }
+        return false;
+    }
+    public void removeMiddle(){
+        if(isEmpty() || numElements == 1){
+            first = last = null;
+        }
+        else{
+            int half = size() / 2;
+            DLLNode<T> point = first;
+            for(int i = 0; i < half; i++){
+                point = point.getFront();
+            }
+            point.getBack().setFront(point.getFront());
+            point.getFront().setBack(point.getBack());
+            --numElements;
+        }
+    }
 }
